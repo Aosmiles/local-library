@@ -1,24 +1,28 @@
-require("dotenv").config();
-const createError = require("http-errors");
-const express = require("express");
-const nunjucks = require("nunjucks");
+import * as dotenv from "dotenv";
+dotenv.config();
 
-const mongoose = require("mongoose");
-const mongoDb = process.env.MONGO_DB;
+import createError from "http-errors";
+import express from "express";
+import nunjucks from "nunjucks";
+
+import mongoose from "mongoose";
+const mongoDb = process.env.MONGO_DB_URL;
 
 mongoose.connect(mongoDb, { useNewUrlParser: true, useUnifiedTopology: true });
 const database = mongoose.connection;
 database.on("error", console.error.bind(console, "MongoDb connection error:"));
 
-const path = require("path");
-const cookieParser = require("cookie-parser");
-const logger = require("morgan");
+import path from "path";
+import cookieParser from "cookie-parser";
+import logger from "morgan";
 
-const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
-const catalogRouter = require("./routes/catalog");
+import indexRouter from "./routes/index.js";
+import catalogRouter from "./routes/catalog.js";
+import { fileURLToPath } from "url";
 
 const app = express();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -34,7 +38,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
 app.use("/catalog", catalogRouter);
 
 // catch 404 and forward to error handler
@@ -43,6 +46,7 @@ app.use(function (req, res, next) {
 });
 
 // error handler
+// eslint-disable-next-line no-unused-vars
 app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
@@ -53,4 +57,4 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
-module.exports = app;
+export default app;

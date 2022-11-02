@@ -1,5 +1,4 @@
-const mongoose = require("mongoose");
-
+import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const BookSchema = new Schema({
@@ -14,4 +13,4 @@ BookSchema.virtual("url").get(function () {
   return `/catalog/book/${this._id}`;
 });
 
-module.exports = mongoose.model("Book", BookSchema);
+export default mongoose.model("Book", BookSchema);

@@ -1,33 +1,36 @@
-const BookInstance = require("../models/bookinstance");
+// eslint-disable-next-line no-unused-vars
+import BookInstance from "../models/bookinstance.js";
 
-exports.bookinstance_list = (req, res) => {
-  res.send("not implemented: bookinstance list");
-};
+export default {
+  bookinstance_list: (req, res) => {
+    res.send("not implemented: bookinstance list");
+  },
 
-exports.bookinstance_detail = (req, res) => {
-  res.send(`not implemented: bookinstance detail: ${req.params.id}`);
-};
+  bookinstance_detail: (req, res) => {
+    res.send(`not implemented: bookinstance detail: ${req.params.id}`);
+  },
 
-exports.bookinstance_create_get = (req, res) => {
-  res.send("not implemented: bookinstance create get");
-};
+  bookinstance_create_get: (req, res) => {
+    res.send("not implemented: bookinstance create get");
+  },
 
-exports.bookinstance_create_post = (req, res) => {
-  res.send("not implemented: bookinstance create post");
-};
+  bookinstance_create_post: (req, res) => {
+    res.send("not implemented: bookinstance create post");
+  },
 
-exports.bookinstance_delete_get = (req, res) => {
-  res.send("not implemented: bookinstance delete get");
-};
+  bookinstance_delete_get: (req, res) => {
+    res.send("not implemented: bookinstance delete get");
+  },
 
-exports.bookinstance_delete_post = (req, res) => {
-  res.send("not implemented: bookinstance delete post");
-};
+  bookinstance_delete_post: (req, res) => {
+    res.send("not implemented: bookinstance delete post");
+  },
 
-exports.bookinstance_update_get = (req, res) => {
-  res.send("not implemented: bookinstance update get");
-};
+  bookinstance_update_get: (req, res) => {
+    res.send("not implemented: bookinstance update get");
+  },
 
-exports.bookinstance_update_post = (req, res) => {
-  res.send("not implemented: bookinstance update post");
+  bookinstance_update_post: (req, res) => {
+    res.send("not implemented: bookinstance update post");
+  },
 };
