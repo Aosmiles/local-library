@@ -1,6 +1,7 @@
 require("dotenv").config();
 const createError = require("http-errors");
 const express = require("express");
+const nunjucks = require("nunjucks");
 
 const mongoose = require("mongoose");
 const mongoDb = process.env.MONGO_DB;
@@ -21,7 +22,10 @@ const app = express();
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "pug");
+nunjucks.configure("views", {
+  autoescape: true,
+  express: app,
+});
 
 app.use(logger("dev"));
 app.use(express.json());
