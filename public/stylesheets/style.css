@@ -4,5 +4,22 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #119663;
+}
+
+main {
+  margin-top: 3rem;
+}
+
+.sidebar {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.available {
+  color: rgb(23, 101, 219);
 }
