@@ -1,10 +1,10 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
 
-const book_controller = require("../controllers/bookController");
-const author_controller = require("../controllers/authorController");
-const genre_controller = require("../controllers/genreController");
-const book_instance_controller = require("../controllers/bookinstanceController");
+import book_controller from "../controllers/bookController.js";
+import author_controller from "../controllers/authorController.js";
+import genre_controller from "../controllers/genreController.js";
+import book_instance_controller from "../controllers/bookinstanceController.js";
 
 // BOOK ROUTES //
 
@@ -84,4 +84,4 @@ router.post(
 router.get("/bookinstance/:id", book_instance_controller.bookinstance_detail);
 router.get("/bookinstances", book_instance_controller.bookinstance_list);
 
-module.exports = router;
+export default router;

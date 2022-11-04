@@ -1,33 +1,36 @@
-const Author = require("../models/author");
+// eslint-disable-next-line no-unused-vars
+import Author from "../models/author.js";
 
-exports.author_list = (req, res) => {
-  res.send("not implemented: author list");
-};
+export default {
+  author_list: (req, res) => {
+    res.send("not implemented: author list");
+  },
 
-exports.author_detail = (req, res) => {
-  res.send(`not implemented: author detail: ${req.params.id}`);
-};
+  author_detail: (req, res) => {
+    res.send(`not implemented: author detail: ${req.params.id}`);
+  },
 
-exports.author_create_get = (req, res) => {
-  res.send("not implemented: author create get");
-};
+  author_create_get: (req, res) => {
+    res.send("not implemented: author create get");
+  },
 
-exports.author_create_post = (req, res) => {
-  res.send("not implemented: author create post");
-};
+  author_create_post: (req, res) => {
+    res.send("not implemented: author create post");
+  },
 
-exports.author_delete_get = (req, res) => {
-  res.send("not implemented: author delete get");
-};
+  author_delete_get: (req, res) => {
+    res.send("not implemented: author delete get");
+  },
 
-exports.author_delete_post = (req, res) => {
-  res.send("not implemented: author delete post");
-};
+  author_delete_post: (req, res) => {
+    res.send("not implemented: author delete post");
+  },
 
-exports.author_update_get = (req, res) => {
-  res.send("not implemented: author update get");
-};
+  author_update_get: (req, res) => {
+    res.send("not implemented: author update get");
+  },
 
-exports.author_update_post = (req, res) => {
-  res.send("not implemented: author update post");
+  author_update_post: (req, res) => {
+    res.send("not implemented: author update post");
+  },
 };

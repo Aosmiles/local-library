@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <title>{% block title %}
+
+    {% endblock title %}</title>
+</head>
+
+<body>
+  <div class="container">
+    <ul class="sidebar">
+      <li><a href="/catalog">Home</a></li>
+      <li>|</li>
+      <li><a href="/catalog/books">All Books</a></li>
+      <li><a href="/catalog/authors">All Authors</a></li>
+      <li><a href="/catalog/genres">All Genres</a></li>
+      <li><a href="/catalog/bookinstances">All Book-Instances</a></li>
+      <li>|</li>
+      <li><a href="/catalog/author/create">Create new Author</a></li>
+      <li><a href="/catalog/genre/create">Create new Genres</a></li>
+      <li><a href="/catalog/book/create">Create new Book</a></li>
+      <li>
+        <a href="/catalog/bookinstance/create">Create new Book-Instances</a>
+      </li>
+    </ul>
+  </div>
+  <main>{% block main %} main {% endblock %}</main>
+</body>
+
+</html>
