@@ -1,0 +1,18 @@
+{% extends "layout.njk" %}
+{% block title %}
+{{title}}
+{% endblock %}
+
+
+{% block main %}
+<h1>{{title}}</h1>
+<ul>
+  {% for instance in bookinstanceList %}
+  <li><a href={{instance.url}}>{{instance.book.title}} : {{instance.imprint}}</a>
+    {% if instance.status == "Available" %}
+    <span class="available"> - {{instance.status}}</span>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% endblock main %}
