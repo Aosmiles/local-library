@@ -11,6 +11,8 @@
   <li><a href={{instance.url}}>{{instance.book.title}} : {{instance.imprint}}</a>
     {% if instance.status == "Available" %}
     <span class="available"> - {{instance.status}}</span>
+    {% else %}
+    <span> - due: {{ instance.due_back}}</span>
     {% endif %}
   </li>
   {% endfor %}
