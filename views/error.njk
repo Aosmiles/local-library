@@ -1,0 +1,11 @@
+{% extends "layout.njk" %}
+
+{% block title %}
+  {{ error.status }}
+{% endblock %}
+
+{% block main %}
+  <h1>Error: {{ error.status }}</h1>
+
+  <p>{{ error.message }}</p>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "layout.njk" %}
+{% block title %}
+  {{ title }}
+{% endblock %}
+{% block main %}
+  <h1>{{ book.title }}</h1>
+  <ul>
+    {% for instance in bookinstances %}
+      <li>
+        {% if instance.status == "Available" %}
+          <p>{{ instance.status }}</p>
+        {% else %}
+          <p>Not Available</p>
+        {% endif %}
+        Imprint: {{ instance.imprint }}
+        <p>
+          <a href="{{ instance.url }}">id: {{ instance._id }}</a>
+        </p>
+        <hr></li>
+      {% else %}
+        <p>No book instance.</p>
+      {% endfor %}
+    </ul>
+  {% endblock main %}

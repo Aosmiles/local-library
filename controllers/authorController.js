@@ -2,8 +2,19 @@
 import Author from "../models/author.js";
 
 export default {
-  author_list: (req, res) => {
-    res.send("not implemented: author list");
+  author_list: (req, res, next) => {
+    Author.find()
+      .sort([["family_name", "ascending"]])
+      .exec(function (err, authorList) {
+        if (err) {
+          return next(err);
+        }
+
+        res.render("author_list", {
+          title: "Author List",
+          authorList: authorList,
+        });
+      });
   },
 
   author_detail: (req, res) => {

@@ -1,20 +1,30 @@
 {% extends "layout.njk" %}
 {% block title %}
-{{ title }}
+  {{ title }}
 {% endblock %}
 
 {% block main %}
 
-<h1>{{title}}</h1>
-<p>Welcome to the library</p>
+  <h1>{{ title }}</h1>
+  <p>Welcome to the library</p>
 
-<p>Here is the library catalog.</p>
-<ul>
-  <li><strong>Books</strong>: {{data.books}}</li>
-  <li><strong>Copies</strong>: {{data.bookinstances}}</li>
-  <li><strong>Copies Availbale</strong>: {{data.bookinstancesAvailable}}</li>
-  <li><strong>Authors</strong>: {{data.authors}}</li>
-  <li><strong>Genres</strong>: {{data.genres}}</li>
-</ul>
+  <p>Here is the library catalog.</p>
+  <ul>
+    <li>
+      <strong>Books</strong>: {{ data.books }}
+    </li>
+    <li>
+      <strong>Copies</strong>: {{ data.bookinstances }}
+    </li>
+    <li>
+      <strong>Copies Availbale</strong>: {{ data.bookinstancesAvailable }}
+    </li>
+    <li>
+      <strong>Authors</strong>: {{ data.authors }}
+    </li>
+    <li>
+      <strong>Genres</strong>: {{ data.genres }}
+    </li>
+  </ul>
 
 {% endblock %}

@@ -4,7 +4,7 @@ import Genre from "../models/genre.js";
 import Bookinstance from "../models/bookinstance.js";
 
 export default {
-  index: (req, res) => {
+  index: (req, res, next) => {
     Promise.all([
       Book.countDocuments({}),
       Bookinstance.countDocuments({}),
@@ -26,7 +26,9 @@ export default {
           },
         });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        return next(err);
+      });
   },
 
   book_list: (req, res, next) => {
@@ -44,8 +46,26 @@ export default {
       });
   },
 
-  book_detail: (req, res) => {
-    res.send(`not implemented: book detail: ${req.params.id}`);
+  book_detail: (req, res, next) => {
+    Promise.all([
+      Book.findById(req.params.id).populate("author").populate("genre"),
+      Bookinstance.find({ book: req.params.id }),
+    ])
+      .then(([book, bookinstances]) => {
+        if (!book) {
+          const err = new Error("Book not found");
+          err.status = 404;
+          return next(err);
+        }
+        res.render("book_detail", {
+          title: book.title,
+          book: book,
+          bookinstances: bookinstances,
+        });
+      })
+      .catch((err) => {
+        return next(err);
+      });
   },
 
   book_create_get: (req, res) => {

@@ -1,20 +1,22 @@
 {% extends "layout.njk" %}
 {% block title %}
-{{title}}
+  {{ title }}
 {% endblock %}
 
-
 {% block main %}
-<h1>{{title}}</h1>
-<ul>
-  {% for instance in bookinstanceList %}
-  <li><a href={{instance.url}}>{{instance.book.title}} : {{instance.imprint}}</a>
-    {% if instance.status == "Available" %}
-    <span class="available"> - {{instance.status}}</span>
-    {% else %}
-    <span> - due: {{ instance.due_back}}</span>
-    {% endif %}
-  </li>
-  {% endfor %}
-</ul>
+  <h1>{{ title }}</h1>
+  <ul>
+    {% for instance in bookinstanceList %}
+      <li>
+        <a href="{{ instance.url }}">{{ instance.book.title }} : {{ instance.imprint }}</a>
+        {% if instance.status == "Available" %}
+          <span class="available">
+            - {{ instance.status }}</span>
+        {% else %}
+          <span>
+            - due: {{ instance.due_back_formatted }}</span>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
 {% endblock main %}

@@ -2,17 +2,20 @@
 
 {% block title %}
   {{ title }}
-{% endblock title %}
+{% endblock %}
 
 {% block main %}
   <h1>{{ title }}</h1>
   <ul>
-    {% for book in bookList %}
+    {% for book in genreBooks %}
       <li>
         <a href="{{ book.url }}">{{ book.title }}</a>
-        by {{ book.author.name }}</li>
+        <p>
+          {{ book.summary }}
+        </p>
+      </li>
     {% else %}
-      <li>No books in list</li>
+      <li>No books in the genre.</li>
     {% endfor %}
   </ul>
-{% endblock main %}
+{% endblock %}
